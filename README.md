@@ -13,6 +13,9 @@
 - Background is scrolling continously
 
 ##Roadmap:
-*
+* Add Obstacles
+* Add different mazes
+* Have the mazes continously spawn
+* Make touch drag each object
 
 

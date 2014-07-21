@@ -7,8 +7,14 @@
 //
 
 #import "MainScene.h"
+#import "DrawView.h"
+#import "Shape.h"
+
 //scrolling speed
 static const CGFloat scrollSpeed = 5.f;
+static const CGFloat firstObstaclePosition = 280.f;
+static const CGFloat distanceBetweenObstacles = 160.f;
+
 @implementation MainScene {
     CCSprite *_green;
     CCSprite *_red;
@@ -20,6 +26,8 @@ static const CGFloat scrollSpeed = 5.f;
     UITouch * t1;
     UITouch * t2;
     int touchDetected;
+    NSMutableArray *_obstacles;
+    CCPhysicsNode *_physicsNode;
 }
 
 
@@ -27,19 +35,28 @@ static const CGFloat scrollSpeed = 5.f;
  
     self.userInteractionEnabled = TRUE;
     _grounds =@[_ground1,_ground2];
-      self.multipleTouchEnabled = YES;
+    self.multipleTouchEnabled = YES;
+    _obstacles = [NSMutableArray array];
+    [self spawnNewObstacle];
+    [self spawnNewObstacle];
+    [self spawnNewObstacle];
+    
+        
+    
 }
 
-
-
-////// Rounded Rectangle Drawing
-//UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(49.5, 28.5, 66, 35) cornerRadius: 4];
-//[fillColor setFill];
-//[roundedRectanglePath fill];
-//[strokeColor setStroke];
-//roundedRectanglePath.lineWidth = 1;
-//[roundedRectanglePath stroke];
-//self roundedRectanglePath
+-(void)spawnNewObstacle {
+    CCNode *previousObstacle = [_obstacles lastObject];
+    CGFloat previousObstacleXPosition = previousObstacle.position.y;
+    if (!previousObstacle) {
+        //this is the first obstacle
+        previousObstacleXPosition = firstObstaclePosition;
+    }
+    CCNode *obstacle = [CCBReader load: @"Obstacle"];
+    obstacle.position = ccp(previousObstacleXPosition + distanceBetweenObstacles, 0);
+    [_physicsNode addchild: obstacle];
+    [_obstacles addObject: obstacle];
+}
 
 
 
@@ -103,9 +120,9 @@ static const CGFloat scrollSpeed = 5.f;
         //Determines the speed of the background
         ground.position = ccp(ground.position.x, ground.position.y - scrollSpeed);
             //Loops the two backgrounds endlessly
-                if (ground.position.y <= (-1 * (ground.contentSize.height*2))) {
+                if (ground.position.y <= (-1 * (ground.contentSize.height*1))) {
                     ground.position = ccp(ground.position.x, ground.position.y +
-                                              2 * (ground.contentSize.height*2));
+                                              2 * (ground.contentSize.height*1));
                 }
             }
     }

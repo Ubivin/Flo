@@ -3,19 +3,22 @@
 
 ##Features:
 * Multi-task with 2 fingers on screen simutanelously 
+* Dodge various obstacles
 * Screen continously scrolls down
-* Navigate through 2 independent mazes with each finger
-* Touch the wall or get cut off and you will lose
-* Complexity of maze and speed of screen increases overtime
+* Touch an obstacle and you will lose
+* Complexity of obstacles increase over time
 
 ##What's working:
 - 2 finger touch is working
-- Background is scrolling continously
+- Background and obstacles are moving in sync
+- Basics obstacles are implemented
+- Touch no longer stutters
 
 ##Roadmap:
-* Add Obstacles
-* Add different mazes
-* Have the mazes continously spawn
+* Add collison
+* Add different obstacles
 * Make touch drag each object
+* Stop the "candy" from falling off the screen 
+
 
 

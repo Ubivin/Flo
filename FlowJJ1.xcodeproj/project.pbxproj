@@ -10,6 +10,7 @@
 		04019DBC197897E300B97607 /* Shape.m in Sources */ = {isa = PBXBuildFile; fileRef = 04019DBB197897E300B97607 /* Shape.m */; };
 		0401A058197995BA00B97607 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0401A057197995BA00B97607 /* DrawView.m */; };
 		04A13282197D83270057BFA5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 04A13281197D83270057BFA5 /* README.md */; };
+		04A134C8197ED537006CB0D3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A134C7197ED537006CB0D3 /* Obstacle.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
@@ -64,6 +65,8 @@
 		0401A056197995BA00B97607 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		0401A057197995BA00B97607 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		04A13281197D83270057BFA5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		04A134C6197ED537006CB0D3 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
+		04A134C7197ED537006CB0D3 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
 				04A13281197D83270057BFA5 /* README.md */,
+				04A134C6197ED537006CB0D3 /* Obstacle.h */,
+				04A134C7197ED537006CB0D3 /* Obstacle.m */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
 				04019DBA197897E300B97607 /* Shape.h */,
@@ -358,6 +363,7 @@
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				04019DBC197897E300B97607 /* Shape.m in Sources */,
+				04A134C8197ED537006CB0D3 /* Obstacle.m in Sources */,
 				0401A058197995BA00B97607 /* DrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

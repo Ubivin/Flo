@@ -9,9 +9,10 @@
 #import "MainScene.h"
 #import "DrawView.h"
 #import "Shape.h"
+#import "Obstacle.h"
 
 //scrolling speed
-static const CGFloat scrollSpeed = 140.f;
+static const CGFloat scrollSpeed = 100.f;
 static const CGFloat firstObstaclePosition = 200.f;
 static const CGFloat distanceBetweenObstacles = 100.f;
 
@@ -114,9 +115,9 @@ static const CGFloat distanceBetweenObstacles = 100.f;
 
 - (void)update:(CCTime)delta {
     
-    //positioning for the green and red thingy majig
-    _green.position = ccp(_green.position.x, _green.position.y - delta * scrollSpeed);
-    _red.position = ccp(_red.position.x, _red.position.y - delta * scrollSpeed);
+//    //positioning for the green and red thingy majig
+//    _green.position = ccp(_green.position.x, _green.position.y - delta * scrollSpeed);
+//    _red.position = ccp(_red.position.x, _red.position.y - delta * scrollSpeed);
     //The direction of the background moving
     _physicsNode.position = ccp(_physicsNode.position.x, _physicsNode.position.y  - (scrollSpeed *delta));
     for (CCNode *ground in _grounds) {

@@ -7,13 +7,13 @@
 //
 
 #import "CCNode.h"
-#import "DrawView.h"
 
 
 
 
 
-@interface MainScene : CCNode{
+
+@interface MainScene : CCNode <CCPhysicsCollisionDelegate> {
  
 }
 

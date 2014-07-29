@@ -51,13 +51,13 @@
 				<key>displayName</key>
 				<string>object_candy-swirls_9acf9cd73af0077a47c2b4d9925e07aa753264db@4x</string>
 				<key>memberVarAssignmentName</key>
-				<string>_greenThing</string>
+				<string>_green</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>physicsBody</key>
 				<dict>
 					<key>affectedByGravity</key>
-					<true/>
+					<false/>
 					<key>allowsRotation</key>
 					<true/>
 					<key>bodyShape</key>
@@ -67,7 +67,7 @@
 					<key>collisionMask</key>
 					<array/>
 					<key>collisionType</key>
-					<string></string>
+					<string>green</string>
 					<key>cornerRadius</key>
 					<real>0.0</real>
 					<key>density</key>
@@ -192,6 +192,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -340,8 +342,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

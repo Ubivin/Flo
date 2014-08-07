@@ -9,6 +9,8 @@
 #import "GreenVertical.h"
 
 
-@implementation GreenVertical
+@implementation GreenVertical {
+    CCNode *_vertical;
+}
 
 @end

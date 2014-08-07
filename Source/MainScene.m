@@ -10,8 +10,8 @@
 #import "Obstacle.h"
 
 //scrolling speed
-static const CGFloat scrollSpeed = 120.f;
-static const CGFloat firstObstaclePosition = 200.f;
+static const CGFloat scrollSpeed = 200.f;
+static const CGFloat firstObstaclePosition = 400.f;
 static const CGFloat distanceBetweenObstacles = 125.f;
 
 @implementation MainScene {
@@ -28,11 +28,13 @@ static const CGFloat distanceBetweenObstacles = 125.f;
     NSMutableArray *_obstacles;
     CCPhysicsNode *_physicsNode;
     //CCNode *_topPipe;
-    CCNode *_bottomPipe;
+//    CCNode *_bottomPipe;
     CCNode *Obstacle;
     CCNode *_background;
     CCNode *_scroller;
     CCButton *_restartButton;
+    float _score;
+    CCLabelTTF *_scoreCount;
 
 }
 
@@ -121,26 +123,29 @@ static const CGFloat distanceBetweenObstacles = 125.f;
 }
 //When green touches an obstacle
 
--(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green wildcard:(CCNode *)wildcard {
+-(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green level:(CCNode *)level {
     NSLog(@"Game Over - green");
     _restartButton.visible = true;
     return TRUE;
 }
 
+-(bool)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB {
+    _restartButton.visible = true; 
+}
 
 //When red touches an obstacle
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair red:(CCNode *)red level:(CCNode *)level {
-    NSLog(@"Game Over - red");
-    _restartButton.visible = true;
-    return TRUE;
-    
-}
-//test
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair red:(CCSprite *)red green:(CCSprite *)green {
-    NSLog(@"Game Over - red");
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair red:(CCNode *)red level:(CCNode *)level {
+//    NSLog(@"Game Over - red");
 //    _restartButton.visible = true;
-    return TRUE;
-}
+//    return TRUE;
+//    
+//}
+//test
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair red:(CCSprite *)red green:(CCSprite *)green {
+//    NSLog(@"Game Over - red");
+////    _restartButton.visible = true;
+//    return TRUE;
+//}
 
 - (void)update:(CCTime)delta {
     
@@ -148,6 +153,10 @@ static const CGFloat distanceBetweenObstacles = 125.f;
     //    _green.position = ccp(_green.position.x, _green.position.y - delta * scrollSpeed);
     //    _red.position = ccp(_red.position.x, _red.position.y - delta * scrollSpeed);
     //The direction of the background moving
+    
+    _score += delta*1;
+    _scoreCount.string = [NSString stringWithFormat:@"%.0f", _score];
+    
     _scroller.position = ccp(_scroller.position.x, _scroller.position.y  - (scrollSpeed *delta));
     
     for (CCNode *ground in _grounds) {
@@ -160,15 +169,7 @@ static const CGFloat distanceBetweenObstacles = 125.f;
         }
        
     }
-    -(void)gameOver{
-        if (!_gameOver){
-            scrollspeed = 0.f;
-            _gameOver = TRUE;
-            _restartButton.visible = TRUE;
-           
-            
-        }
-    }
+
 
 
     //Remove the obstacles as it goes off screen

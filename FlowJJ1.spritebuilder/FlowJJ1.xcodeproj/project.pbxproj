@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		049C245F198C315B006BD26A /* GreenVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C245E198C315B006BD26A /* GreenVertical.m */; };
 		04A13282197D83270057BFA5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 04A13281197D83270057BFA5 /* README.md */; };
 		04A134C8197ED537006CB0D3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A134C7197ED537006CB0D3 /* Obstacle.m */; };
+		04A2020D199570EC0046CA80 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2020C199570EC0046CA80 /* GameOver.m */; };
+		04A20213199716400046CA80 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A20212199716400046CA80 /* Title.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
@@ -59,11 +60,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		049C245D198C315B006BD26A /* GreenVertical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreenVertical.h; sourceTree = "<group>"; };
-		049C245E198C315B006BD26A /* GreenVertical.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreenVertical.m; sourceTree = "<group>"; };
 		04A13281197D83270057BFA5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		04A134C6197ED537006CB0D3 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		04A134C7197ED537006CB0D3 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
+		04A2020B199570EC0046CA80 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		04A2020C199570EC0046CA80 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
+		04A20211199716400046CA80 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Title.h; sourceTree = "<group>"; };
+		04A20212199716400046CA80 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Title.m; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
@@ -138,10 +141,12 @@
 				04A13281197D83270057BFA5 /* README.md */,
 				04A134C6197ED537006CB0D3 /* Obstacle.h */,
 				04A134C7197ED537006CB0D3 /* Obstacle.m */,
-				049C245D198C315B006BD26A /* GreenVertical.h */,
-				049C245E198C315B006BD26A /* GreenVertical.m */,
+				04A20211199716400046CA80 /* Title.h */,
+				04A20212199716400046CA80 /* Title.m */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				04A2020B199570EC0046CA80 /* GameOver.h */,
+				04A2020C199570EC0046CA80 /* GameOver.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -354,9 +359,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A20213199716400046CA80 /* Title.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
-				049C245F198C315B006BD26A /* GreenVertical.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				04A2020D199570EC0046CA80 /* GameOver.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				04A134C8197ED537006CB0D3 /* Obstacle.m in Sources */,
 			);

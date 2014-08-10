@@ -8,6 +8,7 @@
 
 #import "MainScene.h"
 #import "Obstacle.h"
+#import "GameOver.h"
 
 //scrolling speed
 static const CGFloat scrollSpeed = 200.f;
@@ -49,9 +50,9 @@ static const CGFloat distanceBetweenObstacles = 125.f;
     _physicsNode.collisionDelegate = self;
     [self spawnNewObstacle];
     [self spawnNewObstacle];
-    [self spawnNewObstacle];
-    [self spawnNewObstacle];
-    [self spawnNewObstacle];
+//    [self spawnNewObstacle];
+//    [self spawnNewObstacle];
+//    [self spawnNewObstacle];
     
 }
 
@@ -84,15 +85,15 @@ static const CGFloat distanceBetweenObstacles = 125.f;
         touchDetected++;
         
     }
-    else if (touchDetected == 1){
-        t2 = touch;
-        //            NSLog(@"Tap 2");
-        CGPoint secondTouch = [touch locationInNode:self];
-        _red.position=secondTouch;
-        touchDetected++;
-    }
-    else
-    {}
+//    else if (touchDetected == 1){
+//        t2 = touch;
+//        //            NSLog(@"Tap 2");
+//        CGPoint secondTouch = [touch locationInNode:self];
+//        _red.position=secondTouch;
+//        touchDetected++;
+//    }
+//    else
+//    {}
 
 }
 
@@ -103,12 +104,12 @@ static const CGFloat distanceBetweenObstacles = 125.f;
         _green.position=touchLocation;
         //        NSLog(@"Move 1");
     }
-    else if (t2 == touch)
-    {
-        CGPoint secondTouch = [touch locationInNode:self];
-        _red.position=secondTouch;
-        //        NSLog(@"Move 2");
-    }
+//    else if (t2 == touch)
+////    {
+////        CGPoint secondTouch = [touch locationInNode:self];
+////        _red.position=secondTouch;
+////        //        NSLog(@"Move 2");
+////    }
 }
 
 //restart button
@@ -125,11 +126,21 @@ static const CGFloat distanceBetweenObstacles = 125.f;
 
 -(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green level:(CCNode *)level {
     NSLog(@"Game Over - green");
-    _restartButton.visible = true;
+      self.paused = YES;
+    [_green removeFromParent];
+//    _restartButton.visible = true;
+    
+    GameOver *popup = (GameOver *)[CCBReader load:@"GameOver"];
+    popup.positionType = CCPositionTypeNormalized;
+    popup.position = ccp(.10 ,.10);
+    popup.nextLevelName = @"GameOver";
+    [self addChild:popup];
+    
     return TRUE;
 }
 
 -(bool)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB {
+      self.paused = YES;
     _restartButton.visible = true; 
 }
 

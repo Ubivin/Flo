@@ -19,7 +19,7 @@
 // visibility on a 3.5-inch iPhone ends a 88 points
 static const CGFloat minimumYPositionTopPipe = 128.f; //128
 // visibility at 480
-static const CGFloat maximumYPositionBottomPipe = 1000.f; //440
+static const CGFloat maximumYPositionBottomPipe = 400.f; //440
 //distance between top and bottom pipe
 static const CGFloat pipeDistance = 5.f;
 //calculate the end of the range of top pipe

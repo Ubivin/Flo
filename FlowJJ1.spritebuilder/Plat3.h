@@ -1,5 +1,5 @@
 //
-//  Plat1.h
+//  Plat3.h
 //  FlowJJ1
 //
 //  Created by Jason Hoang on 8/11/14.
@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Plat1 : CCNode {
+@interface Plat3 : CCNode {
     
 }
-- (void)didLoadFromCCB;
 
 @end

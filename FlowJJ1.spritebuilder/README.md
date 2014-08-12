@@ -19,6 +19,8 @@
 * Add different obstacles
 * Make touch drag each object
 * Stop the "candy" from falling off the screen 
+* Center the obstacles
+* 
 
 
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		047906E81999459F00E355C8 /* Plat1.m in Sources */ = {isa = PBXBuildFile; fileRef = 047906E71999459F00E355C8 /* Plat1.m */; };
 		047906EB1999466600E355C8 /* Plat2.m in Sources */ = {isa = PBXBuildFile; fileRef = 047906EA1999466600E355C8 /* Plat2.m */; };
+		047906EE19998E4400E355C8 /* Plat3.m in Sources */ = {isa = PBXBuildFile; fileRef = 047906ED19998E4400E355C8 /* Plat3.m */; };
 		04A13282197D83270057BFA5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 04A13281197D83270057BFA5 /* README.md */; };
 		04A134C8197ED537006CB0D3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A134C7197ED537006CB0D3 /* Obstacle.m */; };
 		04A2020D199570EC0046CA80 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2020C199570EC0046CA80 /* GameOver.m */; };
@@ -66,6 +67,8 @@
 		047906E71999459F00E355C8 /* Plat1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plat1.m; sourceTree = "<group>"; };
 		047906E91999466600E355C8 /* Plat2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plat2.h; sourceTree = "<group>"; };
 		047906EA1999466600E355C8 /* Plat2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plat2.m; sourceTree = "<group>"; };
+		047906EC19998E4400E355C8 /* Plat3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plat3.h; sourceTree = "<group>"; };
+		047906ED19998E4400E355C8 /* Plat3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plat3.m; sourceTree = "<group>"; };
 		04A13281197D83270057BFA5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		04A134C6197ED537006CB0D3 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
 		04A134C7197ED537006CB0D3 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacle.m; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 				047906E71999459F00E355C8 /* Plat1.m */,
 				047906E91999466600E355C8 /* Plat2.h */,
 				047906EA1999466600E355C8 /* Plat2.m */,
+				047906EC19998E4400E355C8 /* Plat3.h */,
+				047906ED19998E4400E355C8 /* Plat3.m */,
 			);
 			name = Obstacles;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				04A20213199716400046CA80 /* Title.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				047906EE19998E4400E355C8 /* Plat3.m in Sources */,
 				04A2020D199570EC0046CA80 /* GameOver.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				047906EB1999466600E355C8 /* Plat2.m in Sources */,

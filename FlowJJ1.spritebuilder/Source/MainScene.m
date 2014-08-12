@@ -11,11 +11,13 @@
 #import "GameOver.h"
 #import "Plat1.h"
 #import "Plat2.h"
+#import "Plat3.h"
 
 //scrolling speed
 static CGFloat scrollSpeed = 50.f;
 static const CGFloat firstObstaclePosition = 600.f;
-static const CGFloat firstObstaclePosition1 = 470.f;
+static const CGFloat firstObstaclePosition1 = 400.f;
+static const CGFloat firstObstaclePosition2 = 200.f;
 
 static const CGFloat distanceBetweenObstacles = 600.f;
 
@@ -33,7 +35,7 @@ static const CGFloat distanceBetweenObstacles = 600.f;
     int touchDetected;
     NSMutableArray *_obstacles;
     NSMutableArray *_obstacles1;
-
+    NSMutableArray *_obstacles2;
     CCPhysicsNode *_physicsNode;
     //CCNode *_topPipe;
 //    CCNode *_bottomPipe;
@@ -49,6 +51,7 @@ static const CGFloat distanceBetweenObstacles = 600.f;
 
 -(void)didLoadFromCCB {
     
+    
     self.userInteractionEnabled = TRUE;
     _grounds =@[_ground1,_ground2];
     self.multipleTouchEnabled = YES;
@@ -62,9 +65,10 @@ static const CGFloat distanceBetweenObstacles = 600.f;
     _obstacles1 = [NSMutableArray array];
     [self spawnNewObstacle1];
     [self spawnNewObstacle1];
-//    [self spawnNewObstacle];
-//    [self spawnNewObstacle];
-//    [self spawnNewObstacle];
+
+    _obstacles2 = [NSMutableArray array];
+    [self spawnNewObstacle2];
+    [self spawnNewObstacle2];
     
 }
 
@@ -96,6 +100,21 @@ static const CGFloat distanceBetweenObstacles = 600.f;
     obstacle.position = ccp(posX, previousObstacleYPosition1 + distanceBetweenObstacles);
     [_scroller addChild: obstacle];
     [_obstacles1 addObject: obstacle];
+}
+
+-(void)spawnNewObstacle2 {
+    CCNode *previousObstacle2 = [_obstacles1 lastObject];
+    CGFloat previousObstacleYPosition2 = previousObstacle2.position.y;
+    if (!previousObstacle2) {
+        //this is the first obstacle
+        previousObstacleYPosition2 = firstObstaclePosition1;
+    }
+    Obstacle *obstacle = (Obstacle *)[CCBReader load: @"Plat3"];
+    //Spawns randomly
+    int posX = arc4random() % (int)[CCDirector sharedDirector].viewSize.width;
+    obstacle.position = ccp(posX, previousObstacleYPosition2 + distanceBetweenObstacles);
+    [_scroller addChild: obstacle];
+    [_obstacles2 addObject: obstacle];
 }
 
 
@@ -148,7 +167,7 @@ static const CGFloat distanceBetweenObstacles = 600.f;
 }
 //When green touches an obstacle
 
--(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green wildcard:(CCNode *)wildcard {
+-(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green level:(CCNode *)level{
     
     NSLog(@"Game Over - green");
       self.paused = YES;
@@ -157,15 +176,26 @@ static const CGFloat distanceBetweenObstacles = 600.f;
     
     GameOver *popup = (GameOver *)[CCBReader load:@"GameOver"];
     popup.positionType = CCPositionTypeNormalized;
-    popup.position = ccp(.10 ,.10);
+    popup.position = ccp(.05 ,.05);
     popup.nextLevelName = @"GameOver";
     [self addChild:popup];
-    scrollSpeed=100.f;
+    scrollSpeed = 50.f;
 
     return TRUE;
 }
+//Remove the STAR when it touches
+-(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green star:(CCNode *)star {
+    
 
--(bool)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB {
+    [star removeFromParent];
+    _score++;
+    return TRUE;
+}
+
+
+   
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB {
       self.paused = YES;
     _restartButton.visible = true; 
 }
@@ -202,10 +232,11 @@ static const CGFloat distanceBetweenObstacles = 600.f;
     //    _red.position = ccp(_red.position.x, _red.position.y - delta * scrollSpeed);
     //The direction of the background moving
     
-    _score += delta*1;
+//    Score tracker
     _scoreCount.string = [NSString stringWithFormat:@"%.0f", _score];
     
     _scroller.position = ccp(_scroller.position.x, _scroller.position.y  - (scrollSpeed *delta));
+    
     
     for (CCNode *ground in _grounds) {
         //Determines the speed of the background
@@ -216,6 +247,7 @@ static const CGFloat distanceBetweenObstacles = 600.f;
             ground.position = ccp(ground.position.x, ground.position.y + 2 * (ground.contentSize.height* 1));
         }
        
+        
     }
 
 
@@ -259,6 +291,27 @@ static const CGFloat distanceBetweenObstacles = 600.f;
         [_obstacles1 removeObject: obstacleToRemove1];
         //for each removed obstacle, add a new one
         [self spawnNewObstacle1];
+    }
+    
+    
+    NSMutableArray *offScreenObstacles2 = nil;
+    for (CCNode *obstacle2 in _obstacles2){
+        CGPoint obstacleWorldPosition = [_scroller convertToWorldSpace: obstacle2.position];
+        CGPoint obstacleScreenPosition = [self convertToNodeSpace: obstacleWorldPosition];
+        if (obstacleScreenPosition.y < - obstacle2.contentSize.height){
+            if (!offScreenObstacles2)
+            {
+                offScreenObstacles2 = [NSMutableArray array];
+            }
+            [offScreenObstacles2 addObject:obstacle2];
+        }
+    }
+    
+    for (CCNode *obstacleToRemove2 in offScreenObstacles2) {
+        [obstacleToRemove2 removeFromParent];
+        [_obstacles2 removeObject: obstacleToRemove2];
+        //for each removed obstacle, add a new one
+        [self spawnNewObstacle2];
     }
     
     

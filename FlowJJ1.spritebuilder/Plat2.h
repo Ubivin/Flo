@@ -12,5 +12,6 @@
 @interface Plat2 : CCSprite {
     
 }
+- (void)didLoadFromCCB;
 
 @end

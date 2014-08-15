@@ -15,7 +15,7 @@
     CCNode *green2;
     CCNode *green3;
     CCNode *star1;
-    CCNode *star2;
+   
     
 }
 
@@ -29,8 +29,7 @@
     
     star1.physicsBody.collisionType = @"star";
     star1.physicsBody.sensor = TRUE;
-    star2.physicsBody.collisionType = @"star";
-    star2.physicsBody.sensor = TRUE;
+    
     
 }
 

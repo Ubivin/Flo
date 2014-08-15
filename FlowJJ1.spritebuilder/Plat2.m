@@ -14,7 +14,7 @@
     CCSprite *blue2;
     CCSprite *blue3;
     CCSprite *blue4;
-    CCSprite *star3;
+    CCSprite *star2;
 }
 
 - (void)didLoadFromCCB {
@@ -27,8 +27,8 @@
     blue4.physicsBody.collisionType = @"level";
     blue4.physicsBody.sensor = TRUE;
     
-    star3.physicsBody.collisionType = @"star";
-    star3.physicsBody.sensor = TRUE;
+    star2.physicsBody.collisionType = @"star";
+    star2.physicsBody.sensor = TRUE;
 
     
 }

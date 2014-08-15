@@ -12,5 +12,5 @@
 @interface Plat3 : CCNode {
     
 }
-
+- (void)didLoadFromCCB;
 @end

@@ -55,6 +55,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     float _score;
     CCNode *bottomScreen;
     CCLabelTTF *_scoreCount;
+    CCLabelTTF * _highScoreLabel;
     bool checkingPause;
     NSUserDefaults *_highcore;
     
@@ -89,6 +90,9 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     [self spawnNewObstacle3];
     
     checkingPause = NO;
+    
+ 
+
     
 }
 
@@ -233,15 +237,10 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
 //    [self addChild:popup];
     //    NSLog(@"end 1");
 }
-//When green touches an obstacle
 
--(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green level:(CCNode *)level{
+
+-(void)gameOverScene{
     
-    NSLog(@"Game Over - green");
-      self.paused = YES;
-    [_green removeFromParent];
-//    _restartButton.visible = true;
-//    NSString *popup = gameover
     GameOver *popup = (GameOver *)[CCBReader load:@"GameOver"];
     popup.positionType = CCPositionTypeNormalized;
     popup.position = ccp(.05 ,.2);
@@ -249,22 +248,37 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     [self addChild:popup];
     scrollSpeed = 300.f;
     checkingPause = YES;
+    _highScoreLabel.visible = TRUE;
     
-  
-//    NSUserDefaults *_highscore = [NSUserDefaults standardUserDefaults];
-//    if(_score > [_highScore floatForKey: @"highScore"]);
-//    {
-//        [_highScore setFloat: _score forKey: @"highScore"];
-//    }
-//   
-////    popup.finalScoreLabel.string = [NSString stringWithFormat: @"%.0f", _score];
-//    popup.highScoreLabel.string  = [NSString stringWithFormat: @"%.0f", (float)[_highScore floatForKey:@"highScore"]];
-//    
-//    return TRUE;
-//     
-//}
-
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    //    GameOver *gameOverScene = (GameOver *) [CCBReader load: @"GameOver"];
+    NSUserDefaults *_highScore = [NSUserDefaults standardUserDefaults];
+    if(_score > [_highScore floatForKey: @"highScore"])
+    {
+        [_highScore setFloat: _score forKey: @"highScore"];
+    }
+    
+    //    popup.finalScoreLabel.string = [NSString stringWithFormat: @"%.0f", _score];
+    _highScoreLabel.string  = [NSString stringWithFormat: @"%.0f", (float)[_highScore floatForKey:@"highScore"]];
+    
+    
 }
+// WHEN FINGER TOUCHES OBSTACLE
+-(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green level:(CCNode *)level{
+    
+    NSLog(@"Game Over - green");
+      self.paused = YES;
+    [_green removeFromParent];
+//    _restartButton.visible = true;
+//    NSString *popup = gameover
+    [self gameOverScene];
+
+    
+    return TRUE;
+     
+}
+
+//}
 //Remove the STAR when it touches
 
 -(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green star:(CCNode *)star {
@@ -284,13 +298,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     [_green removeFromParent];
     //    _restartButton.visible = true;
     //    NSString *popup = gameover
-    GameOver *popup = (GameOver *)[CCBReader load:@"GameOver"];
-    popup.positionType = CCPositionTypeNormalized;
-    popup.position = ccp(.05 ,.2);
-    popup.nextLevelName = @"GameOver";
-    [self addChild:popup];
-    scrollSpeed = 300.f;
-    checkingPause = YES;
+    [self gameOverScene];
     
     return TRUE;
 

@@ -12,5 +12,6 @@
 @interface GameOver : CCNode
 
 @property (nonatomic, copy) NSString *nextLevelName;
+@property(nonatomic, assign) CCLabelTTF *_highScoreLabel;
 
 @end

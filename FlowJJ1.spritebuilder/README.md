@@ -15,11 +15,13 @@
 - Touch no longer stutters
 
 ##Roadmap:
-* Add different obstacles
 * Make touch drag each object
 * Center the obstacles
 * Add reference for finger /tutorial
-*
+* blur the background
+* touch anywhere to resume
+* add animation 
+* fix icon
 
 
 

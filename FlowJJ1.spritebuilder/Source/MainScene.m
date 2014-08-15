@@ -55,6 +55,8 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     float _score;
     CCNode *bottomScreen;
     CCLabelTTF *_scoreCount;
+    bool checkingPause;
+    NSUserDefaults *_highcore;
     
 
 }
@@ -85,6 +87,8 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     _obstacles3 = [NSMutableArray array];
     [self spawnNewObstacle3];
     [self spawnNewObstacle3];
+    
+    checkingPause = NO;
     
 }
 
@@ -185,6 +189,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     CCScene *restartNow= [CCBReader loadAsScene:@"MainScene"];
     CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
     [[CCDirector sharedDirector] replaceScene:restartNow withTransition:transition];
+    checkingPause = NO;
 }
 
 -(void)resumePause{
@@ -197,6 +202,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
         CCScene *homePauseNow= [CCBReader loadAsScene:@"Title"];
         CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
         [[CCDirector sharedDirector] replaceScene:homePauseNow withTransition:transition];
+    checkingPause = NO;
     }
 
 
@@ -209,7 +215,14 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
 -(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     touchDetected = 0;
     self.paused = YES;
+    if(checkingPause == YES){
+        
+        pauseMenu.visible = FALSE;
+        
+    }else
+    {
     pauseMenu.visible = TRUE;
+    }
 //    Pause *popup = (Pause *)[CCBReader load:@"Pause"];
 //    popup.positionType = CCPositionTypeNormalized;
 //    popup.position = ccp(.05 ,.2);
@@ -232,21 +245,25 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     popup.nextLevelName = @"GameOver";
     [self addChild:popup];
     scrollSpeed = 300.f;
-    /*
-    NSUserDefaults *_highscore = [NSuserDefaults standardUserDefaults];
-    if(_score > [_highScore floatForKey: @"highScore"]);
-    {
-        [_highScore setFloat: _score forKey: @"highScore"];
-    }
-   
-    popup.finalScoreLabel.string = [NSString stringWithFormat: @"%.0f", _score];
-    popup.highScoreLabel.string  = [NSString stringWithFormat: @"%.0f", (float)[_highScore floatForKey:@"highScore"]];
+    checkingPause = YES;
     
-    return TRUE;
-     */
+  
+//    NSUserDefaults *_highscore = [NSUserDefaults standardUserDefaults];
+//    if(_score > [_highScore floatForKey: @"highScore"]);
+//    {
+//        [_highScore setFloat: _score forKey: @"highScore"];
+//    }
+//   
+////    popup.finalScoreLabel.string = [NSString stringWithFormat: @"%.0f", _score];
+//    popup.highScoreLabel.string  = [NSString stringWithFormat: @"%.0f", (float)[_highScore floatForKey:@"highScore"]];
+//    
+//    return TRUE;
+//     
+//}
+
 }
-     
 //Remove the STAR when it touches
+
 -(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green star:(CCNode *)star {
     
 
@@ -254,6 +271,8 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     _score++;
     return TRUE;
 }
+
+
 
 -(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair star:(CCSprite *)star bottom:(CCNode *)bottom {
     
@@ -268,6 +287,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     popup.nextLevelName = @"GameOver";
     [self addChild:popup];
     scrollSpeed = 300.f;
+    checkingPause = YES;
     
     return TRUE;
 
@@ -295,6 +315,8 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     scrollSpeed += 50;
 }
 - (void)update:(CCTime)delta {
+    
+
     
     timerTillScrollFaster += delta;
     if (timerTillScrollFaster >= 10 && timerTillScrollFaster - delta <= 10)

@@ -162,7 +162,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
         [self spawnNewObstacle];
     
 }
--(void)newTutorial
+
 
 -(void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
     if (t1 == touch){

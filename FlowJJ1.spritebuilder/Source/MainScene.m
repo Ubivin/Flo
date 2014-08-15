@@ -17,20 +17,20 @@
 
 //scrolling speed
 static CGFloat scrollSpeed = 300;
-static CGFloat firstObstaclePosition = 1200.f;
-static CGFloat firstObstaclePosition1 = 900.f;
-static CGFloat firstObstaclePosition2 = 600.f;
-static CGFloat firstObstaclePosition3 = 300.f;
+static CGFloat firstObstaclePosition = 1300.f;
+static CGFloat firstObstaclePosition1 = 950.f;
+static CGFloat firstObstaclePosition2 = 650.f;
+static CGFloat firstObstaclePosition3 = 350.f;
 
 
-static const CGFloat distanceBetweenObstacles = 1210.f;
+static const CGFloat distanceBetweenObstacles = 1310.f;
 
 @implementation MainScene {
     float timerTillScrollFaster;
     CCParticleSystem *_green;
     CCSprite *_red;
-    CCNode *_ground1;
-    CCNode *_ground2;
+    CCSprite *_ground1;
+    CCSprite *_ground2;
     NSArray *_grounds;
     CCNode *_leftSide;
     CCNode *pauseMenu;
@@ -55,6 +55,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     float _score;
     CCNode *bottomScreen;
     CCLabelTTF *_scoreCount;
+    CCLabelTTF *_scoreCount2;
     CCLabelTTF * _highScoreLabel;
     bool checkingPause;
     NSUserDefaults *_highcore;
@@ -249,7 +250,9 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     scrollSpeed = 300.f;
     checkingPause = YES;
     _highScoreLabel.visible = TRUE;
-    
+    _scoreCount.visible = FALSE;
+    _scoreCount2.visible = TRUE;
+    //
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     //    GameOver *gameOverScene = (GameOver *) [CCBReader load: @"GameOver"];
     NSUserDefaults *_highScore = [NSUserDefaults standardUserDefaults];
@@ -342,22 +345,36 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     
 //    Score tracker
     _scoreCount.string = [NSString stringWithFormat:@"%.0f", _score];
+    _scoreCount2.string = [NSString stringWithFormat:@"%.0f", _score];
     
     _scroller.position = ccp(_scroller.position.x, _scroller.position.y  - (scrollSpeed *delta));
     
     
-    for (CCNode *ground in _grounds) {
-        //Determines the speed of the background
-        ground.position = ccp(ground.position.x, ground.position.y - (scrollSpeed *delta));
-//        ground.position = ccp(ground.position.x, ground.position.y - .1);
-        //Loops the two backgrounds endlessly
-        if (ground.position.y <= (-1 * (ground.contentSize.height*1)))
-        {
-            ground.position = ccp(ground.position.x, ground.position.y + 2 * (ground.contentSize.height* 1));
-        }
+//    for (CCNode *ground in _grounds) {
+//        //Determines the speed of the background
+//        ground.position = ccp(ground.position.x, ground.position.y - (scrollSpeed *delta));
+////        ground.position = ccp(ground.position.x, ground.position.y - .1);
+//        //Loops the two backgrounds endlessly
+//        if (ground.position.y <= (-1 * (ground.contentSize.height*1)))
+//        {
+//            ground.position = ccp(ground.position.x, ground.position.y + 2 * (ground.contentSize.height* 1));
+//        }
+//        
+//    }
+    
+    //loop the background endlessly
+    [_ground1 setPosition:ccp(_ground1.positionInPoints.x, _ground1.positionInPoints.y - scrollSpeed * delta)];
+    [_ground2 setPosition:ccp(_ground2.positionInPoints.x, _ground2.positionInPoints.y - scrollSpeed * delta)];
+    
+    
+    if (_ground1.positionInPoints.y <= -_ground1.contentSizeInPoints.height * _ground1.scaleYInPoints){
         
+        [_ground1 setPosition:ccp(_ground1.positionInPoints.x, 0)];
+        [_ground2 setPosition:ccp(_ground2.positionInPoints.x, _ground2.contentSizeInPoints.height * _ground2.scaleYInPoints)];
     }
-//    
+    
+    
+//
 //    for (CCNode *background in _grounds) {
 //            background.position = ccp(background.position.x, background.position.y - _movementSpeed);
 //            if (background.position.y <= (-1 * background.contentSize.height))

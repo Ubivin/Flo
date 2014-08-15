@@ -20,8 +20,7 @@
 * Add reference for finger /tutorial
 * blur the background
 * touch anywhere to resume
-* add animation 
-* fix icon
+* add animation
 * add sound
 
 

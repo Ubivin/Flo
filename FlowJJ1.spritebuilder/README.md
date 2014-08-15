@@ -22,6 +22,7 @@
 * touch anywhere to resume
 * add animation 
 * fix icon
+* add sound
 
 
 

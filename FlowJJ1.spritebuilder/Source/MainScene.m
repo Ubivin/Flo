@@ -162,6 +162,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
         [self spawnNewObstacle];
     
 }
+-(void)newTutorial
 
 -(void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
     if (t1 == touch){
@@ -190,6 +191,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
     CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
     [[CCDirector sharedDirector] replaceScene:restartNow withTransition:transition];
     checkingPause = NO;
+    pauseMenu.visible = FALSE;
 }
 
 -(void)resumePause{
@@ -203,6 +205,7 @@ static const CGFloat distanceBetweenObstacles = 1210.f;
         CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
         [[CCDirector sharedDirector] replaceScene:homePauseNow withTransition:transition];
     checkingPause = NO;
+    pauseMenu.visible = FALSE;
     }
 
 

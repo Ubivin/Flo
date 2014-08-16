@@ -14,8 +14,12 @@
 
 
 -(void)gameOverAgain {
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playEffect:@"button.wav"];
     CCScene *gameOverAgain= [CCBReader loadAsScene:@"MainScene"];
     CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
     [[CCDirector sharedDirector] replaceScene:gameOverAgain withTransition:transition];
+    
+    
 }
 @end

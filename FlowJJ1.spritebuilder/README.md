@@ -16,11 +16,9 @@
 
 ##Roadmap:
 * Make touch drag each object
-* Center the obstacles
 * Add reference for finger /tutorial
-* blur the background
-* touch anywhere to resume
 * add animation
+* fix exploit of resuming game
 * add sound
 
 

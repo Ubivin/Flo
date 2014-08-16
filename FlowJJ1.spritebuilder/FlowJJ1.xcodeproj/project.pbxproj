@@ -27,6 +27,11 @@
 		04A134C8197ED537006CB0D3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A134C7197ED537006CB0D3 /* Obstacle.m */; };
 		04A2020D199570EC0046CA80 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2020C199570EC0046CA80 /* GameOver.m */; };
 		04A20213199716400046CA80 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A20212199716400046CA80 /* Title.m */; };
+		04ECF82F199FBC2E001CD6A8 /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04ECF82E199FBC2E001CD6A8 /* ding.wav */; };
+		04ECF833199FBF08001CD6A8 /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04ECF832199FBF08001CD6A8 /* button.wav */; };
+		04ECF835199FC287001CD6A8 /* laser.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04ECF834199FC287001CD6A8 /* laser.wav */; };
+		04ECF83A199FC4BF001CD6A8 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04ECF839199FC4BF001CD6A8 /* gameover.mp3 */; };
+		04ECF83C199FC5B9001CD6A8 /* TechTalk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04ECF83B199FC5B9001CD6A8 /* TechTalk.mp3 */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		B71F5911188484E7003F4D28 /* iPad-old1.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old1.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x1.png */; };
@@ -105,6 +110,11 @@
 		04A2020C199570EC0046CA80 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		04A20211199716400046CA80 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Title.h; sourceTree = "<group>"; };
 		04A20212199716400046CA80 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Title.m; sourceTree = "<group>"; };
+		04ECF82E199FBC2E001CD6A8 /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
+		04ECF832199FBF08001CD6A8 /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
+		04ECF834199FC287001CD6A8 /* laser.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser.wav; sourceTree = "<group>"; };
+		04ECF839199FC4BF001CD6A8 /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameover.mp3; sourceTree = "<group>"; };
+		04ECF83B199FC5B9001CD6A8 /* TechTalk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TechTalk.mp3; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		B71F5907188484E7003F4D28 /* iPad-old1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old1.png"; path = "Icons/iPad-old1.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x1.png"; path = "Icons/iPad-old@2x1.png"; sourceTree = "<group>"; };
@@ -193,6 +203,18 @@
 				04790701199D512800E355C8 /* Plat4.m */,
 			);
 			name = Obstacles;
+			sourceTree = "<group>";
+		};
+		04ECF82C199FBBFE001CD6A8 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				04ECF839199FC4BF001CD6A8 /* gameover.mp3 */,
+				04ECF82E199FBC2E001CD6A8 /* ding.wav */,
+				04ECF834199FC287001CD6A8 /* laser.wav */,
+				04ECF83B199FC5B9001CD6A8 /* TechTalk.mp3 */,
+				04ECF832199FBF08001CD6A8 /* button.wav */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		9222E2B918734FF800A246C7 /* libs */ = {
@@ -296,9 +318,10 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04ECF82C199FBBFE001CD6A8 /* Audio */,
+				B737893A180761570076A88C /* Published-iOS */,
 				042112B2199D899F00941828 /* Old Icons */,
 				B73789911807667A0076A88C /* Icons */,
-				B737893A180761570076A88C /* Published-iOS */,
 			);
 			name = Resources;
 			path = Source/Resources;
@@ -399,8 +422,11 @@
 				042112DB199E6A2900941828 /* iPhone.png in Resources */,
 				042112DD199E6A2900941828 /* Settings.png in Resources */,
 				042112DC199E6A2900941828 /* iPhone@2x.png in Resources */,
+				04ECF82F199FBC2E001CD6A8 /* ding.wav in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x1.png in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x1.png in Resources */,
+				04ECF835199FC287001CD6A8 /* laser.wav in Resources */,
+				04ECF83C199FC5B9001CD6A8 /* TechTalk.mp3 in Resources */,
 				042112D6199E6A2900941828 /* iPad-old@2x.png in Resources */,
 				04A13282197D83270057BFA5 /* README.md in Resources */,
 				042112D5199E6A2900941828 /* iPad-old.png in Resources */,
@@ -409,12 +435,14 @@
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				042112DE199E6A2900941828 /* Settings@2x.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
+				04ECF833199FBF08001CD6A8 /* button.wav in Resources */,
 				042112D7199E6A2900941828 /* iPad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old1.png in Resources */,
 				042112DA199E6A2900941828 /* iPhone-old@2x.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone1.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				042112D9199E6A2900941828 /* iPhone-old.png in Resources */,
+				04ECF83A199FC4BF001CD6A8 /* gameover.mp3 in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x1.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old1.png in Resources */,

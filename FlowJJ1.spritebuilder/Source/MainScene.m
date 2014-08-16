@@ -27,10 +27,11 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 @implementation MainScene {
     float timerTillScrollFaster;
-    CCParticleSystem *_green;
+    CCNode *_green;
+    CCNode *_detect;
     CCSprite *_red;
-    CCSprite *_ground1;
-    CCSprite *_ground2;
+    CCNode *_ground1;
+    CCNode *_ground2;
     NSArray *_grounds;
     CCNode *_leftSide;
     CCNode *pauseMenu;
@@ -38,18 +39,17 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     UITouch * t1;
     UITouch * t2;
     int touchDetected;
+    int touchCollision;
     NSMutableArray *_obstacles;
     NSMutableArray *_obstacles1;
     NSMutableArray *_obstacles2;
     NSMutableArray *_obstacles3;
     CCPhysicsNode *_physicsNode;
-    //CCNode *_topPipe;
-//    CCNode *_bottomPipe;
     CCNode *Obstacle;
     CCNode *_background;
     CCNode *_scroller;
 //    CCButton *_restartButton;
-    CCButton *_homePause;
+//    CCButton *_homePause;
     CCButton *_resumePause;
     CCButton *_restartPause;
     float _score;
@@ -68,6 +68,8 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     
     bottomScreen.physicsBody.collisionType = @"bottom";
     bottomScreen.physicsBody.sensor = TRUE;
+   _detect.physicsBody.collisionType = @"detect";
+   _detect.physicsBody.sensor = TRUE;
     self.userInteractionEnabled = TRUE;
     _grounds =@[_ground1,_ground2];
     self.multipleTouchEnabled = YES;
@@ -91,10 +93,23 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     [self spawnNewObstacle3];
     
     checkingPause = NO;
+    touchCollision = 0;
+    
+    
+    [self backgroundMusic];
+
+   
     
  
 
     
+}
+
+-(void)backgroundMusic{
+    
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    // play background sound
+    [audio playBg:@"TechTalk.mp3" loop:TRUE];
 }
 
 -(void)spawnNewObstacle {
@@ -159,22 +174,29 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 }
 
 
+
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
     
+//    CGPoint touchLocation = [touch locationInNode:self];
+//    _detect.position = touchLocation;
+//    
+//    if( touchCollision == 1){
+    _green.visible = FALSE;
         t1 = touch;
         CGPoint touchLocation = [touch locationInNode:self];
         _green.position=touchLocation;
-        [self spawnNewObstacle];
-    
-}
+    }
+
+
+
 
 
 -(void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
-    if (t1 == touch){
+    
+    if (touch == t1){
         
         CGPoint touchLocation = [touch locationInNode:self];
         _green.position=touchLocation;
-        //        NSLog(@"Move 1");
     }
 //    else if (t2 == touch)
 ////    {
@@ -197,30 +219,34 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     [[CCDirector sharedDirector] replaceScene:restartNow withTransition:transition];
     checkingPause = NO;
     pauseMenu.visible = FALSE;
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playEffect:@"button.wav"];
 }
 
 -(void)resumePause{
     pauseMenu.visible = FALSE;
     self.paused = FALSE;
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playEffect:@"button.wav"];
 }
 
--(void)homePause{
-    
-        CCScene *homePauseNow= [CCBReader loadAsScene:@"Title"];
-        CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
-        [[CCDirector sharedDirector] replaceScene:homePauseNow withTransition:transition];
-    checkingPause = NO;
-    pauseMenu.visible = FALSE;
-    }
-
-
-
-    
+//-(void)homePause{
+//    
+//        CCScene *homePauseNow= [CCBReader loadAsScene:@"Title"];
+//        CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
+//        [[CCDirector sharedDirector] replaceScene:homePauseNow withTransition:transition];
+//    checkingPause = NO;
+//    pauseMenu.visible = FALSE;
+//    }
 
 
 ////////////////////////////////////
 
+
+
+
 -(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+    _green.visible = TRUE;
     touchDetected = 0;
     self.paused = YES;
     if(checkingPause == YES){
@@ -231,12 +257,6 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     {
     pauseMenu.visible = TRUE;
     }
-//    Pause *popup = (Pause *)[CCBReader load:@"Pause"];
-//    popup.positionType = CCPositionTypeNormalized;
-//    popup.position = ccp(.05 ,.2);
-//    popup.nextLevelName = @"Pause";
-//    [self addChild:popup];
-    //    NSLog(@"end 1");
 }
 
 
@@ -247,7 +267,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     popup.position = ccp(.05 ,.2);
     popup.nextLevelName = @"GameOver";
     [self addChild:popup];
-    scrollSpeed = 300.f;
+    scrollSpeed = 275.f;
     checkingPause = YES;
     _highScoreLabel.visible = TRUE;
     _scoreCount.visible = FALSE;
@@ -269,8 +289,9 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 // WHEN FINGER TOUCHES OBSTACLE
 -(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green level:(CCNode *)level{
     
-    NSLog(@"Game Over - green");
       self.paused = YES;
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playEffect:@"gameover.mp3"];
     [_green removeFromParent];
 //    _restartButton.visible = true;
 //    NSString *popup = gameover
@@ -286,7 +307,9 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 -(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green star:(CCNode *)star {
     
-
+OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playEffect:@"laser.wav"];
+    
     [star removeFromParent];
     _score++;
     return TRUE;
@@ -298,6 +321,8 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     
     NSLog(@"Star Touched.");
     self.paused = YES;
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playEffect:@"gameover.mp3"];
     [_green removeFromParent];
     //    _restartButton.visible = true;
     //    NSString *popup = gameover
@@ -306,6 +331,13 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     return TRUE;
 
 }
+//Detect the touch
+//-(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green detect:(CCNode *)detect {
+//    
+//    {
+//        NSLog(@"Touch Detected");
+//        touchCollision = 1;
+//    }}
 
 
 
@@ -329,6 +361,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     scrollSpeed += 50;
 }
 - (void)update:(CCTime)delta {
+    
     
 
     

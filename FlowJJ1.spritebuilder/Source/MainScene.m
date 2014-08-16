@@ -66,6 +66,8 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 -(void)didLoadFromCCB {
     
+
+    
     bottomScreen.physicsBody.collisionType = @"bottom";
     bottomScreen.physicsBody.sensor = TRUE;
    _detect.physicsBody.collisionType = @"detect";
@@ -110,6 +112,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
     [audio playBg:@"TechTalk.mp3" loop:TRUE];
+    [audio preloadEffect:@"laser.wav"];
 }
 
 -(void)spawnNewObstacle {

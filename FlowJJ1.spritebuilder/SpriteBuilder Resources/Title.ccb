@@ -42,6 +42,40 @@
 			<dict>
 				<key>UUID</key>
 				<integer>4</integer>
+				<key>animatedProperties</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>scale</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>scale</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>4</integer>
+									<key>value</key>
+									<array>
+										<real>9.4600181579589844</real>
+										<real>13.840352058410645</real>
+									</array>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>scale</string>
+							<key>type</key>
+							<integer>4</integer>
+						</dict>
+					</dict>
+				</dict>
 				<key>baseClass</key>
 				<string>CCButton</string>
 				<key>children</key>
@@ -90,6 +124,11 @@
 						</array>
 					</dict>
 					<dict>
+						<key>baseValue</key>
+						<array>
+							<real>9.4600181579589844</real>
+							<real>13.840352058410645</real>
+						</array>
 						<key>name</key>
 						<string>scale</string>
 						<key>type</key>
@@ -364,6 +403,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -486,7 +527,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>1</real>
 							<real>0.0</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -613,7 +654,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>F L O W </string>
+							<string>F  L  O</string>
 							<false/>
 						</array>
 					</dict>
@@ -632,7 +673,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>65</real>
+							<real>70</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -643,6 +684,19 @@
 						<string>Check</string>
 						<key>value</key>
 						<false/>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>color</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<real>0.89411771297454834</real>
+							<real>0.97254908084869385</real>
+							<real>0.96862751245498657</real>
+							<real>1</real>
+						</array>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -663,7 +717,7 @@
 						<key>type</key>
 						<string>IntegerLabeled</string>
 						<key>value</key>
-						<integer>0</integer>
+						<integer>1</integer>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -680,9 +734,9 @@
 						<string>Color4</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
-							<real>1</real>
+							<real>0.97254908084869385</real>
+							<real>0.89019614458084106</real>
+							<real>0.89019614458084106</real>
 							<real>1</real>
 						</array>
 					</dict>
@@ -693,10 +747,10 @@
 						<string>Color4</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>0.62745100259780884</real>
+							<real>0.81960791349411011</real>
+							<real>0.92156869173049927</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -717,10 +771,10 @@
 						<string>Color4</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>0.7137255072593689</real>
+							<real>0.93725496530532837</real>
+							<real>0.7725490927696228</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -730,7 +784,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>9</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -749,6 +803,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -807,8 +863,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>1.25</real>
+							<real>1.25</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -831,9 +887,9 @@
 						<string>Color3</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
-							<real>1</real>
+							<real>0.79607850313186646</real>
+							<real>0.10588236153125763</real>
+							<real>0.9490196704864502</real>
 							<real>1</real>
 						</array>
 					</dict>
@@ -903,8 +959,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1.25</real>
-									<real>1.25</real>
+									<real>1</real>
+									<real>1</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -927,8 +983,8 @@
 								<string>Size</string>
 								<key>value</key>
 								<array>
-									<real>32</real>
-									<real>32</real>
+									<real>64</real>
+									<real>64</real>
 									<integer>0</integer>
 									<integer>0</integer>
 								</array>
@@ -973,7 +1029,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>New Art/arrow_right.png</string>
+									<string>New Art/play43.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -3219,8 +3275,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

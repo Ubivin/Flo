@@ -27,17 +27,20 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 @implementation MainScene {
     float timerTillScrollFaster;
+    NSTimer *timer;
     CCNode *_green;
     CCNode *_detect;
     CCSprite *_red;
     CCNode *_ground1;
     CCNode *_ground2;
+    CCSprite *_invis;
     NSArray *_grounds;
     CCNode *_leftSide;
     CCNode *pauseMenu;
     CCNode *_rightSide;
     UITouch * t1;
     UITouch * t2;
+    int countdownCounter;
     int touchDetected;
     int touchCollision;
     NSMutableArray *_obstacles;
@@ -57,8 +60,10 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     CCLabelTTF *_scoreCount;
     CCLabelTTF *_scoreCount2;
     CCLabelTTF * _highScoreLabel;
+    CCLabelTTF *_countdown;
     bool checkingPause;
     NSUserDefaults *_highcore;
+    int invisGreen;
     
 
 }
@@ -66,7 +71,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 -(void)didLoadFromCCB {
     
-
+    self.paused = TRUE;
     
     bottomScreen.physicsBody.collisionType = @"bottom";
     bottomScreen.physicsBody.sensor = TRUE;
@@ -112,7 +117,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     // play background sound
     [audio playBg:@"TechTalk.mp3" loop:TRUE];
-    [audio preloadEffect:@"laser.wav"];
+ 
 }
 
 -(void)spawnNewObstacle {
@@ -179,18 +184,24 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    
-//    CGPoint touchLocation = [touch locationInNode:self];
-//    _detect.position = touchLocation;
-//    
-//    if( touchCollision == 1){
+    if(self.paused == TRUE && invisGreen == 1){
+        _countdown.visible = TRUE;
+    }
     _green.visible = FALSE;
         t1 = touch;
         CGPoint touchLocation = [touch locationInNode:self];
         _green.position=touchLocation;
+    _invis.position=touchLocation;
+    
+    if(pauseMenu.visible == TRUE){
+        pauseMenu.visible = FALSE;
+        self.paused = FALSE;
     }
+    
+   
 
 
+}
 
 
 
@@ -201,30 +212,15 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
         CGPoint touchLocation = [touch locationInNode:self];
         _green.position=touchLocation;
     }
-//    else if (t2 == touch)
-////    {
-////        CGPoint secondTouch = [touch locationInNode:self];
-////        _red.position=secondTouch;
-////        //        NSLog(@"Move 2");
-////    }
+    CGPoint touchLocation = [touch locationInNode:self];
+    _invis.position=touchLocation;
+
 }
 
-////restart button
-//-(void)restart{
-//    CCScene *scene = [CCBReader loadAsScene: @"MainScene"];
-//    [[CCDirector sharedDirector] replaceScene:scene];
-//}
+
 /////////////////////////////Pause Menu
--(void)restartPause{
-  
-    CCScene *restartNow= [CCBReader loadAsScene:@"MainScene"];
-    CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
-    [[CCDirector sharedDirector] replaceScene:restartNow withTransition:transition];
-    checkingPause = NO;
-    pauseMenu.visible = FALSE;
-    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
-    [audio playEffect:@"button.wav"];
-}
+
+
 
 -(void)resumePause{
     pauseMenu.visible = FALSE;
@@ -233,14 +229,6 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
     [audio playEffect:@"button.wav"];
 }
 
-//-(void)homePause{
-//    
-//        CCScene *homePauseNow= [CCBReader loadAsScene:@"Title"];
-//        CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
-//        [[CCDirector sharedDirector] replaceScene:homePauseNow withTransition:transition];
-//    checkingPause = NO;
-//    pauseMenu.visible = FALSE;
-//    }
 
 
 ////////////////////////////////////
@@ -291,7 +279,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 }
 // WHEN FINGER TOUCHES OBSTACLE
 -(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green level:(CCNode *)level{
-    
+    invisGreen = 0;
       self.paused = YES;
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     [audio playEffect:@"gameover.mp3"];
@@ -321,7 +309,7 @@ OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
 
 
 -(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair star:(CCSprite *)star bottom:(CCNode *)bottom {
-    
+    invisGreen = 0;
     NSLog(@"Star Touched.");
     self.paused = YES;
     OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
@@ -334,29 +322,35 @@ OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     return TRUE;
 
 }
-//Detect the touch
-//-(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair green:(CCSprite *)green detect:(CCNode *)detect {
-//    
-//    {
-//        NSLog(@"Touch Detected");
-//        touchCollision = 1;
-//    }}
 
 
 
-//When red touches an obstacle
-//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair red:(CCNode *)red level:(CCNode *)level {
-//    NSLog(@"Game Over - red");
-//    _restartButton.visible = true;
-//    return TRUE;
-//    
-//}
-//test
-//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair red:(CCSprite *)red green:(CCSprite *)green {
-//    NSLog(@"Game Over - red");
-////    _restartButton.visible = true;
-//    return TRUE;
-//}
+//START COUNTDOWN
+-(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair invis:(CCNode *)invis green:(CCSprite *)green{
+    invisGreen = 1;
+    countdownCounter = 3;
+    timer = [NSTimer scheduledTimerWithTimeInterval: 1.2
+                                             target: self
+                                           selector: @selector(countDown)
+                                           userInfo: nil
+                                            repeats: YES];
+    return TRUE;
+}
+
+-(void)countDown{
+    countdownCounter -=1;
+    if (countdownCounter <=0){
+        [timer invalidate];
+        timer = nil;
+    }
+    if (countdownCounter == 0){
+        _countdown.visible = FALSE;
+    }
+}
+
+
+
+
 // Increase scrollspeed
 -(void)timerTillScrollIncrease
 {
@@ -378,6 +372,10 @@ OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
     //    _green.position = ccp(_green.position.x, _green.position.y - delta * scrollSpeed);
     //    _red.position = ccp(_red.position.x, _red.position.y - delta * scrollSpeed);
     //The direction of the background moving
+    
+    //Countdown TIMER
+    
+      _countdown.string = [NSString stringWithFormat:@"%i", countdownCounter];
     
 //    Score tracker
     _scoreCount.string = [NSString stringWithFormat:@"%.0f", _score];

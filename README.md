@@ -12,7 +12,7 @@
 
 
 ##What's working:
-- 2 finger touch is working
+- Finger dragging is working
 - Background and obstacles are moving in sync
 - Basics obstacles are implemented
 - Touch no longer stutters

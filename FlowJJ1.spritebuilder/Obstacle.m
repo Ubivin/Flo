@@ -14,7 +14,7 @@
     CCNode *_bottomPipe;
     CCNode *Obstacle;
 }
-//See if commit worksfdsfds
+
 #define ARC4RANDOM_MAX 0X100000000
 // visibility on a 3.5-inch iPhone ends a 88 points
 static const CGFloat minimumYPositionTopPipe = 128.f; //128

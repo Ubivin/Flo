@@ -71,7 +71,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 -(void)didLoadFromCCB {
     
-    self.paused = TRUE;
+//    self.paused = TRUE;
     
     bottomScreen.physicsBody.collisionType = @"bottom";
     bottomScreen.physicsBody.sensor = TRUE;
@@ -184,9 +184,9 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    if(self.paused == TRUE && invisGreen == 1){
-        _countdown.visible = TRUE;
-    }
+//    if(self.paused == TRUE && invisGreen == 1){
+//        _countdown.visible = TRUE;
+//    }
     _green.visible = FALSE;
         t1 = touch;
         CGPoint touchLocation = [touch locationInNode:self];
@@ -238,7 +238,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 -(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     _green.visible = TRUE;
-    touchDetected = 0;
+//    touchDetected = 0;
     self.paused = YES;
     if(checkingPause == YES){
         

@@ -1978,8 +1978,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>102</real>
-									<real>133</real>
+									<real>107</real>
+									<real>64</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2016,7 +2016,7 @@
 								<string>Text</string>
 								<key>value</key>
 								<array>
-									<string>Hold and Drag</string>
+									<string>Hold to Start</string>
 									<false/>
 								</array>
 							</dict>

@@ -217,14 +217,7 @@ static const CGFloat distanceBetweenObstacles = 1310.f;
 
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    tapGesture.numberOfTapsRequired = 2;
-    [self.view addGestureRecognizer:tapGesture];
-    [tapGesture release];
-}
+
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateRecognized) {

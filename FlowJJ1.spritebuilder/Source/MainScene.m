@@ -1,6 +1,6 @@
 //
 //  MainScene.m
-//  PROJECTNAME
+//  Flo
 //
 //  Created by Jason Hoang
 //

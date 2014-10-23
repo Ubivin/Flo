@@ -105,7 +105,6 @@
 		04A134C8197ED537006CB0D3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A134C7197ED537006CB0D3 /* Obstacle.m */; };
 		04A2020D199570EC0046CA80 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2020C199570EC0046CA80 /* GameOver.m */; };
 		04A20213199716400046CA80 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A20212199716400046CA80 /* Title.m */; };
-		04CA3DEF19F741C900B0E944 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CA3DEE19F741C900B0E944 /* Launch Screen.xib */; };
 		04CA3DF219F74BAF00B0E944 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CA3DF119F74BAF00B0E944 /* Default-568h@2x.png */; };
 		04CA3DF419F74BBF00B0E944 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CA3DF319F74BBF00B0E944 /* Default@2x.png */; };
 		04CA3DF619F74BCD00B0E944 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CA3DF519F74BCD00B0E944 /* Default.png */; };
@@ -271,7 +270,6 @@
 		04A2020C199570EC0046CA80 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		04A20211199716400046CA80 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Title.h; sourceTree = "<group>"; };
 		04A20212199716400046CA80 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Title.m; sourceTree = "<group>"; };
-		04CA3DEE19F741C900B0E944 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		04CA3DF119F74BAF00B0E944 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		04CA3DF319F74BBF00B0E944 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		04CA3DF519F74BCD00B0E944 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -495,7 +493,6 @@
 				04A134C7197ED537006CB0D3 /* Obstacle.m */,
 				04A20211199716400046CA80 /* Title.h */,
 				0461B6A819B64EE3003691A3 /* MyParticle.sks */,
-				04CA3DEE19F741C900B0E944 /* Launch Screen.xib */,
 				0461B6A919B64EE3003691A3 /* spark.png */,
 				04A20212199716400046CA80 /* Title.m */,
 				B7378992180767190076A88C /* MainScene.h */,
@@ -748,7 +745,6 @@
 				0461B6AB19B64EE3003691A3 /* spark.png in Resources */,
 				049EA03A19BE9BBA00213EED /* hipmobsend_field.png in Resources */,
 				042112D7199E6A2900941828 /* iPad.png in Resources */,
-				04CA3DEF19F741C900B0E944 /* Launch Screen.xib in Resources */,
 				049EA03F19BE9BBA00213EED /* mgwu-m@2x.png in Resources */,
 				049EA03019BE9BBA00213EED /* FBLoginButtonPressed.png in Resources */,
 				049EA04B19BE9BBA00213EED /* MGWUBackground-Landscape~ipad.png in Resources */,

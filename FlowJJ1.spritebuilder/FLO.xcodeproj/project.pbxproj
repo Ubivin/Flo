@@ -26,6 +26,8 @@
 		047906EE19998E4400E355C8 /* Plat3.m in Sources */ = {isa = PBXBuildFile; fileRef = 047906ED19998E4400E355C8 /* Plat3.m */; };
 		047906F9199C025A00E355C8 /* Pause.m in Sources */ = {isa = PBXBuildFile; fileRef = 047906F8199C025A00E355C8 /* Pause.m */; };
 		04790702199D512800E355C8 /* Plat4.m in Sources */ = {isa = PBXBuildFile; fileRef = 04790701199D512800E355C8 /* Plat4.m */; };
+		0493AB0419F9C5A9006DDE49 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0493AB0319F9C5A9006DDE49 /* iAd.framework */; };
+		0493AB0819F9C9B1006DDE49 /* AD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493AB0719F9C9B1006DDE49 /* AD.m */; };
 		049E9FD719BE99C800213EED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 049E9FD619BE99C800213EED /* libz.dylib */; };
 		049E9FD919BE99D900213EED /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049E9FD819BE99D900213EED /* MessageUI.framework */; };
 		049E9FDB19BE99E000213EED /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049E9FDA19BE99E000213EED /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -188,6 +190,9 @@
 		047906F8199C025A00E355C8 /* Pause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pause.m; sourceTree = "<group>"; };
 		04790700199D512800E355C8 /* Plat4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plat4.h; sourceTree = "<group>"; };
 		04790701199D512800E355C8 /* Plat4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plat4.m; sourceTree = "<group>"; };
+		0493AB0319F9C5A9006DDE49 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		0493AB0619F9C9B1006DDE49 /* AD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AD.h; sourceTree = "<group>"; };
+		0493AB0719F9C9B1006DDE49 /* AD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AD.m; sourceTree = "<group>"; };
 		049E9FD619BE99C800213EED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		049E9FD819BE99D900213EED /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		049E9FDA19BE99E000213EED /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -320,6 +325,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0493AB0419F9C5A9006DDE49 /* iAd.framework in Frameworks */,
 				049E9FDF19BE99EE00213EED /* SystemConfiguration.framework in Frameworks */,
 				049E9FDD19BE99E600213EED /* StoreKit.framework in Frameworks */,
 				049E9FDB19BE99E000213EED /* Social.framework in Frameworks */,
@@ -486,6 +492,8 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0493AB0619F9C9B1006DDE49 /* AD.h */,
+				0493AB0719F9C9B1006DDE49 /* AD.m */,
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
 				04A13281197D83270057BFA5 /* README.md */,
@@ -561,6 +569,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0493AB0319F9C5A9006DDE49 /* iAd.framework */,
 				049E9FE019BE9BB900213EED /* mgwuSDK.embeddedframework */,
 				049E9FDE19BE99EE00213EED /* SystemConfiguration.framework */,
 				049E9FDC19BE99E600213EED /* StoreKit.framework */,
@@ -818,6 +827,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A20213199716400046CA80 /* Title.m in Sources */,
+				0493AB0819F9C9B1006DDE49 /* AD.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				047906EE19998E4400E355C8 /* Plat3.m in Sources */,
@@ -938,7 +948,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = FLO;
-				PROVISIONING_PROFILE = "098B0293-C31E-46A6-BA31-372DCC7A8CEA";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -976,7 +986,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = FLO;
-				PROVISIONING_PROFILE = "098B0293-C31E-46A6-BA31-372DCC7A8CEA";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

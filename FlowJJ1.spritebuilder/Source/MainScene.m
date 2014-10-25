@@ -15,6 +15,7 @@
 #import "Plat4.h"
 #import "Pause.h"
 
+
 //scrolling speed
 static CGFloat scrollSpeed = 300;
 static CGFloat firstObstaclePosition = 1300.f;

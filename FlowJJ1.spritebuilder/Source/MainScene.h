@@ -7,6 +7,8 @@
 //
 
 #import "CCNode.h"
+#import <iAd/iAd.h>
+
 
 
 

@@ -305,7 +305,7 @@
 		B73789861807631A0076A88C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = Source/Prefix.pch; sourceTree = SOURCE_ROOT; };
 		B7378992180767190076A88C /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = Source/MainScene.h; sourceTree = "<group>"; };
 		B7378993180767190076A88C /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScene.m; path = Source/MainScene.m; sourceTree = "<group>"; };
-		B77F1B2E17B978D7009739AE /* FLO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B77F1B2E17B978D7009739AE /* FLW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77F1B3117B978D7009739AE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B77F1B3317B978D7009739AE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B77F1B3517B978D7009739AE /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -559,7 +559,7 @@
 		B77F1B2F17B978D7009739AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B77F1B2E17B978D7009739AE /* FLO.app */,
+				B77F1B2E17B978D7009739AE /* FLW.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -614,9 +614,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B77F1B2D17B978D7009739AE /* FLO */ = {
+		B77F1B2D17B978D7009739AE /* FLW */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "FLO" */;
+			buildConfigurationList = B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "FLW" */;
 			buildPhases = (
 				D2E0167A18D782EC00927430 /* Run Script */,
 				B77F1B2A17B978D7009739AE /* Sources */,
@@ -628,9 +628,9 @@
 			dependencies = (
 				B7378989180764180076A88C /* PBXTargetDependency */,
 			);
-			name = FLO;
+			name = FLW;
 			productName = Example;
-			productReference = B77F1B2E17B978D7009739AE /* FLO.app */;
+			productReference = B77F1B2E17B978D7009739AE /* FLW.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -652,7 +652,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B77F1B2917B978D7009739AE /* Build configuration list for PBXProject "FLO" */;
+			buildConfigurationList = B77F1B2917B978D7009739AE /* Build configuration list for PBXProject "FLW" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -670,7 +670,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				B77F1B2D17B978D7009739AE /* FLO */,
+				B77F1B2D17B978D7009739AE /* FLW */,
 			);
 		};
 /* End PBXProject section */
@@ -947,7 +947,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = FLO;
+				PRODUCT_NAME = FLW;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -985,7 +985,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = FLO;
+				PRODUCT_NAME = FLW;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -996,7 +996,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B77F1B2917B978D7009739AE /* Build configuration list for PBXProject "FLO" */ = {
+		B77F1B2917B978D7009739AE /* Build configuration list for PBXProject "FLW" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B77F1CDC17B978D8009739AE /* Debug */,
@@ -1005,7 +1005,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "FLO" */ = {
+		B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "FLW" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B77F1CDF17B978D8009739AE /* Debug */,

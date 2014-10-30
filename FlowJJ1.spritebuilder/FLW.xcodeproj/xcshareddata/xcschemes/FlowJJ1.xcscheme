@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
                BuildableName = "FLO.app"
-               BlueprintName = "FLO"
-               ReferencedContainer = "container:FLO.xcodeproj">
+               BlueprintName = "FLW"
+               ReferencedContainer = "container:FLW.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
             BuildableName = "FLO.app"
-            BlueprintName = "FLO"
-            ReferencedContainer = "container:FLO.xcodeproj">
+            BlueprintName = "FLW"
+            ReferencedContainer = "container:FLW.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
             BuildableName = "FLO.app"
-            BlueprintName = "FLO"
-            ReferencedContainer = "container:FLO.xcodeproj">
+            BlueprintName = "FLW"
+            ReferencedContainer = "container:FLW.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,8 +76,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
             BuildableName = "FLO.app"
-            BlueprintName = "FLO"
-            ReferencedContainer = "container:FLO.xcodeproj">
+            BlueprintName = "FLW"
+            ReferencedContainer = "container:FLW.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -86,6 +86,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Flo"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

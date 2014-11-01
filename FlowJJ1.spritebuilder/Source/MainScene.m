@@ -334,17 +334,17 @@ OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
 
 
 
-//START COUNTDOWN
--(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair invis:(CCNode *)invis green:(CCSprite *)green{
-    invisGreen = 1;
-    countdownCounter = 3;
-    timer = [NSTimer scheduledTimerWithTimeInterval: 1.2
-                                             target: self
-                                           selector: @selector(countDown)
-                                           userInfo: nil
-                                            repeats: YES];
-    return TRUE;
-}
+////START COUNTDOWN  removed
+//-(BOOL)ccPhysicsCollisionBegin: (CCPhysicsCollisionPair *)pair invis:(CCNode *)invis green:(CCSprite *)green{
+//    invisGreen = 1;
+//    countdownCounter = 3;
+//    timer = [NSTimer scheduledTimerWithTimeInterval: 1.2
+//                                             target: self
+//                                           selector: @selector(countDown)
+//                                           userInfo: nil
+//                                            repeats: YES];
+//    return TRUE;
+//}
 
 -(void)countDown{
     countdownCounter -=1;

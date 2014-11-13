@@ -1,4 +1,4 @@
-#Flo
+#FLW
 ===
 
 
@@ -15,13 +15,16 @@
 - Finger dragging is working
 - Background and obstacles are moving in sync
 - Basics obstacles are implemented
-- Touch no longer stutters
+
+
 
 ##Roadmap:
 * Update tutorial (more intuitive)
 * add animation
 * fix exploit of resuming game
 * Beautify!
+* Smooth out gameplay
+* Fix stuttering
 
 
 

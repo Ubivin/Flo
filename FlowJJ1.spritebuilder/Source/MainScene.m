@@ -4,7 +4,7 @@
 //
 //  Created by Jason Hoang
 //
-//
+//new error ARC semantic issue
 
 #import "MainScene.h"
 #import "Obstacle.h"
@@ -18,6 +18,7 @@
 
 //scrolling speed
 static CGFloat scrollSpeed = 300;
+//obstacles first position
 static CGFloat firstObstaclePosition = 1300.f;
 static CGFloat firstObstaclePosition1 = 950.f;
 static CGFloat firstObstaclePosition2 = 650.f;
